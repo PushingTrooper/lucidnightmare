@@ -25,3 +25,8 @@ target_position = Vector3(0, 0, -1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-0.00555692, -0.703914, -0.00368314, 0.347396, -0.0105251, -0.0616126, 0.0410359, -0.00621978, 0.521092, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_bxnki")
+
+[node name="freeQueueTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
