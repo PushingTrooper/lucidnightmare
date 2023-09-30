@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6acqm3u7u1e8"]
+[gd_scene load_steps=8 format=3 uid="uid://b6acqm3u7u1e8"]
 
+[ext_resource type="Script" path="res://scripts/World.gd" id="1_4lbbn"]
 [ext_resource type="PackedScene" uid="uid://cve3fu224uibk" path="res://data/player/player.tscn" id="1_dc6xj"]
-[ext_resource type="Script" path="res://Scenes/World.gd" id="1_eyftu"]
+[ext_resource type="Script" path="res://scripts/blue_platform.gd" id="2_eekg2"]
+[ext_resource type="Script" path="res://scripts/red_platform.gd" id="3_fjyt5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_va7ml"]
 sky_top_color = Color(0.509804, 0.180392, 1, 1)
@@ -18,7 +20,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Floor" type="Node3D"]
-script = ExtResource("1_eyftu")
+script = ExtResource("1_4lbbn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v33fs")
@@ -36,16 +38,19 @@ size = Vector3(10, 1, 10)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.1895)
 use_collision = true
 size = Vector3(3.79928, 2.48789, 3.52458)
+script = ExtResource("2_eekg2")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98919, 0, -19.8597)
 use_collision = true
 size = Vector3(3.79928, 4.67709, 3.52458)
+script = ExtResource("2_eekg2")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55031, 0, -25.9252)
 use_collision = true
 size = Vector3(3.79928, 2.48789, 3.52458)
+script = ExtResource("2_eekg2")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55031, 0, -37.56)
@@ -56,16 +61,19 @@ size = Vector3(11.4494, 2.48789, 3.10329)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -47.9559)
 use_collision = true
 size = Vector3(6.17072, 2.48789, 5.18927)
+script = ExtResource("3_fjyt5")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98919, 0, -57.6261)
 use_collision = true
 size = Vector3(3.79928, 3.21585, 3.52458)
+script = ExtResource("2_eekg2")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55031, 0, -63.6916)
 use_collision = true
 size = Vector3(3.79928, 2.48789, 3.52458)
+script = ExtResource("3_fjyt5")
 
 [node name="player" parent="." instance=ExtResource("1_dc6xj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55542, 0)
