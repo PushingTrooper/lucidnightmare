@@ -14,7 +14,7 @@ var projectile = preload("res://data/projectile/projectile.tscn")
 @onready var parts = {
 	"head": $head,
 	"weapon": $head/camera/MeshInstance3D2,
-	"projectile_spawn": $head/projectile_spawn,
+	"projectile_spawn": $head/camera/projectile_spawn,
 	"camera": $head/camera,
 	"camera_animation": $head/camera/camera_animation
 }
@@ -70,7 +70,15 @@ func _input(event):
 			
 	if event.is_action_pressed("mouse_left_click"):
 		var initProjectile = projectile.instantiate()
-		add_child(initProjectile)
+		var characterPosition = self.position
+#		var proPosition = Vector3()
+		initProjectile.position = parts.projectile_spawn.global_position
+		initProjectile.transform.basis = parts.projectile_spawn.global_transform.basis
+#		initProjectile.position.y += 0.2
+#		parts.projectile_spawn.instantiate(projectile)
+		world.add_child(initProjectile)
+		move_and_slide()
+		
 			
 #			parts.weapon.rotation_degrees.y -= event.relative.x * sensitivity
 #			parts.weapon.rotation_degrees.x -= event.relative.y * sensitivity
