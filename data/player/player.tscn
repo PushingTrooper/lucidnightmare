@@ -41,6 +41,33 @@ albedo_color = Color(0.917647, 0.529412, 0.168627, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3oyv7"]
 material = SubResource("StandardMaterial3D_3iwsb")
 
+[sub_resource type="Animation" id="Animation_e6g13"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.461622, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.256186, -0.309559, -0.227303)]
+}
+
 [sub_resource type="Animation" id="Animation_qjh2w"]
 resource_name = "swing"
 length = 0.2
@@ -56,33 +83,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.461622, 0, 0), Vector3(0.461622, 0, 0), Vector3(0.3486, 0.42295, -0.0202822), Vector3(0.180524, 0.873567, -0.15382), Vector3(0.0741111, 1.17413, -0.340362)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.256186, -0.309559, -0.227303)]
-}
-
-[sub_resource type="Animation" id="Animation_e6g13"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.461622, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -120,7 +120,7 @@ libraries = {
 }
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="head/camera"]
-transform = Transform3D(0.20298, 0, 0, 0, 0.169256, -0.43975, 0, 0.0841997, 0.883973, 0.256186, -0.309559, -0.227303)
+transform = Transform3D(0.20298, 0, 0, 0, 0.169256, -0.43975, 0, 0.0841998, 0.883973, 0.256186, -0.309559, -0.227303)
 mesh = SubResource("BoxMesh_6ddlv")
 skeleton = NodePath("../../..")
 

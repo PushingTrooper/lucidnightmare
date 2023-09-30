@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b6acqm3u7u1e8"]
+[gd_scene load_steps=21 format=3 uid="uid://b6acqm3u7u1e8"]
 
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_4lbbn"]
 [ext_resource type="PackedScene" uid="uid://cve3fu224uibk" path="res://data/player/player.tscn" id="1_dc6xj"]
@@ -29,9 +29,6 @@ uv1_scale = Vector3(1.625, 1.625, 1.625)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sf4td"]
 albedo_texture = ExtResource("2_x11pn")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1udlh"]
-size = Vector3(1.74267, 1, 1.73913)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocwvr"]
 albedo_texture = ExtResource("2_x11pn")
@@ -105,15 +102,6 @@ size = Vector3(8, 2, 8)
 material = SubResource("StandardMaterial3D_sf4td")
 script = ExtResource("2_eekg2")
 
-[node name="Area3D" type="Area3D" parent="CSGBox3D2"]
-transform = Transform3D(0.954759, 0, 0, 0, 0.954759, 0, 0, 0, 0.954759, 0, 0, 0)
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/Area3D"]
-transform = Transform3D(4.5, 0, 0, 0, 2.07559, 0, 0, 0, 4.5, 0, 0, 0)
-shape = SubResource("BoxShape3D_1udlh")
-
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0227, 0, -30.754)
 use_collision = true
@@ -128,8 +116,8 @@ size = Vector3(8, 2.48789, 8)
 material = SubResource("StandardMaterial3D_3didv")
 script = ExtResource("2_eekg2")
 
-[node name="Weapon Platform" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7068, 0, -68.8832)
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7068, 0, -66.8832)
 use_collision = true
 size = Vector3(36, 2.5, 14)
 material = SubResource("StandardMaterial3D_h30le")
@@ -160,5 +148,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55542, 0)
 
 [node name="Node3D" parent="." instance=ExtResource("9_4sdkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5497, 1.90586, -68.9366)
-
-[connection signal="body_entered" from="CSGBox3D2/Area3D" to="CSGBox3D2" method="_on_area_3d_body_entered"]
