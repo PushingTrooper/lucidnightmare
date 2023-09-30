@@ -14,7 +14,6 @@ var projectile = preload("res://data/projectile/projectile.tscn")
 @onready var parts = {
 	"head": $head,
 	"weapon": $head/camera/MeshInstance3D2,
-	"projectile_spawn": $head/rojectile_spawn,
 	"camera": $head/camera,
 	"camera_animation": $head/camera/camera_animation
 }
