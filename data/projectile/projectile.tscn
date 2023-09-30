@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://661fnqnm72ge"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gadh6"]
+
+[node name="projectile" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.19679, 0, 0.223636, 0, 0.200415, 0, -0.0705115, 0, 0.624144, 0, 0, -0.284045)
+mesh = SubResource("BoxMesh_gadh6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.159872, 0, -0.263741, 0, 0.200415, 0, 0.0687193, 0, 0.61358, -0.00620799, 0, 0.264701)
+mesh = SubResource("BoxMesh_gadh6")

@@ -9,11 +9,12 @@ extends CharacterBody3D
 var speed = base_speed
 var sprinting = false
 var camera_fov_extents = [75.0, 85.0] #index 0 is normal, index 1 is sprinting
-
+var projectile = preload("res://data/projectile/projectile.tscn")
 
 @onready var parts = {
 	"head": $head,
-	"weapon": $MeshInstance3D2,
+	"weapon": $head/camera/MeshInstance3D2,
+	"projectile_spawn": $head/rojectile_spawn,
 	"camera": $head/camera,
 	"camera_animation": $head/camera/camera_animation
 }
@@ -66,6 +67,10 @@ func _input(event):
 			parts.head.rotation_degrees.y -= event.relative.x * sensitivity
 			parts.head.rotation_degrees.x -= event.relative.y * sensitivity
 			parts.head.rotation.x = clamp(parts.head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+			
+	if event.is_action_pressed("mouse_left_click"):
+		var initProjectile = projectile.instantiate()
+		add_child(initProjectile)
 			
 #			parts.weapon.rotation_degrees.y -= event.relative.x * sensitivity
 #			parts.weapon.rotation_degrees.x -= event.relative.y * sensitivity
