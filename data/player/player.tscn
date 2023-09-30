@@ -55,15 +55,12 @@ libraries = {
 }
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="head/camera"]
-transform = Transform3D(0.20298, 0, 0, 0, 0.174381, -0.381233, 0, 0.0729953, 0.910742, 0.352991, -0.239031, -0.369727)
+transform = Transform3D(0.20298, 0, 0, 0, 0.169256, -0.439751, 0, 0.0841998, 0.883973, 0.256186, -0.309559, -0.227303)
 mesh = SubResource("BoxMesh_6ddlv")
 skeleton = NodePath("../../..")
 
 [node name="projectile_spawn" type="Node3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.842178)
-
-[node name="RayCast3D" type="RayCast3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.842)
 
 [node name="collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_phygr")
