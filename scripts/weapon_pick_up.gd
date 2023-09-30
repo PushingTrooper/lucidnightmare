@@ -15,5 +15,5 @@ func _process(delta):
 
 func _on_area_3d_body_entered(body):
 	Orchestrator.haveGun = true
-	self.process_mode = 4 # = Mode: Disabled
-	self.hide()
+	#self.process_mode = 4 # = Mode: Disabled
+	self.queue_free()
