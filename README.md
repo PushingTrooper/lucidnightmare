@@ -1,8 +1,6 @@
-# simplefps
+# Lucid Nightmare
 
-A  simple first-person shooter asset for the Godot Engine. Ready for immediate use when added to a 3D game.
-
-Updated & Tested for Godot 4.0.2 Stable
+YOUR nightmare
 
 #### Features
 
@@ -20,5 +18,3 @@ Updated & Tested for Godot 4.0.2 Stable
 - E = Grab physics object (Rigid Body by default)
   - Left-Click to throw held object
 - Space = Jump
-
-[![Icon](simplefps-icon.png)]
