@@ -83,7 +83,6 @@ func _physics_process(delta):
 	if direction and !is_on_floor():
 		var normalziedVel = clamp(abs(velocity.x), 0, 1)
 		if normalziedVel > 0 and Input.is_action_just_pressed("ui_down"):
-			print("it goes here")
 			velocity.x = move_toward(velocity.x, 0, SLOW_DOWN_SPEED)
 			velocity.z = move_toward(velocity.z, 0, SLOW_DOWN_SPEED)
 		if normalziedVel == 0 and Input.is_action_just_pressed("ui_up"):

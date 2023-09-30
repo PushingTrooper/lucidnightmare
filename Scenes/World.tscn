@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6acqm3u7u1e8"]
+[gd_scene load_steps=6 format=3 uid="uid://b6acqm3u7u1e8"]
 
-[ext_resource type="PackedScene" uid="uid://dgpjxoygnvyy4" path="res://assets/simple_fpsplayer/Player.tscn" id="1_yecmt"]
+[ext_resource type="PackedScene" uid="uid://cve3fu224uibk" path="res://data/player/player.tscn" id="1_dc6xj"]
+[ext_resource type="Script" path="res://Scenes/World.gd" id="1_eyftu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_va7ml"]
 sky_top_color = Color(0.509804, 0.180392, 1, 1)
@@ -17,9 +18,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Floor" type="Node3D"]
-
-[node name="Player" parent="." instance=ExtResource("1_yecmt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47637, 0)
+script = ExtResource("1_eyftu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v33fs")
@@ -67,3 +66,6 @@ size = Vector3(3.79928, 3.21585, 3.52458)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55031, 0, -63.6916)
 use_collision = true
 size = Vector3(3.79928, 2.48789, 3.52458)
+
+[node name="player" parent="." instance=ExtResource("1_dc6xj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55542, 0)
