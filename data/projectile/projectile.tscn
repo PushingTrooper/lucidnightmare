@@ -4,10 +4,11 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_gadh6"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_g5o6s"]
-size = Vector3(1, 0.145738, 0.425597)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bxnki"]
 
 [node name="projectile" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_fema8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -22,4 +23,5 @@ mesh = SubResource("BoxMesh_gadh6")
 target_position = Vector3(0, 0, -1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_g5o6s")
+transform = Transform3D(-0.00555692, -0.703914, -0.00368314, 0.347396, -0.0105251, -0.0616126, 0.0410359, -0.00621978, 0.521092, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_bxnki")

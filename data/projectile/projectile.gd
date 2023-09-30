@@ -4,7 +4,7 @@ extends RigidBody3D
 @onready var mesh2 = $MeshInstance3D2
 @onready var rayCast = $RayCast3D
 
-const SPEED = 40
+const SPEED = 60
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
