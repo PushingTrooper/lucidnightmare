@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 @onready var mesh1 = $MeshInstance3D
-@onready var mesh2 = $MeshInstance3D2
+@onready var mesh2 = $MeshInstance3D2s
 @onready var rayCast = $RayCast3D
 @onready var freeQueueTimer = $freeQueueTimer
 
