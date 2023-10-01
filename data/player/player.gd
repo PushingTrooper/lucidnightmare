@@ -19,6 +19,7 @@ var hp = 10
 @onready var armsAnimation = $head/camera/arms_animation/AnimationPlayer
 @onready var leftButtonTextLabel = $head/camera/Control/leftButtonTextLabel
 @onready var rightButtonTextLabel = $head/camera/Control/rightButtonTextLabel
+@onready var hpTextLabel = $head/camera/Control/hpTextLabel
 
 @onready var parts = {
 	"head": $head,
@@ -101,6 +102,7 @@ func _input(event):
 #		if isEvenBullet:
 		swordAnimation.play("Cylinder_001Action")
 		armsAnimation.play("ArmatureAction_001")
+#		hit()
 #		else:
 #			swordAnimation.play_backwards("Cylinder_001Action")
 #			armsAnimation.play_backwards("ArmatureAction_001")
@@ -117,11 +119,24 @@ func hit():
 	emit_signal("enemy_hit", damageTaken)
 	print("got hit")
 	hp-=1
-#	if(hp < 1):
-#		self.queue_free()
+	hpTextLabel.text = "HP "+ str(hp)
+	if(hp < 1):
+		resetGame()
+
+func resetGame():
+	Orchestrator.haveGun = false
+	leftButtonTextLabel.visible = false
+	rightButtonTextLabel.visible = false
+	hp = 10
+	Orchestrator._state = Orchestrator.States.STATE_BLUE
+	get_tree().reload_current_scene()
 
 func _on_pause():
 	pass
 
 func _on_unpause():
 	pass
+
+
+func _on_enemy_fly_body_entered(body):
+	hit()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cve3fu224uibk"]
+[gd_scene load_steps=16 format=3 uid="uid://cve3fu224uibk"]
 
 [ext_resource type="Script" path="res://data/player/player.gd" id="1_u1w3t"]
 [ext_resource type="PackedScene" uid="uid://cgupsmo68e4mk" path="res://scenes/arms_animation.tscn" id="2_3kahs"]
 [ext_resource type="Texture2D" uid="uid://bubwl36108v2r" path="res://data/cursors/crosshair001.png" id="2_nq3sk"]
 [ext_resource type="PackedScene" uid="uid://drscp48mqs1sj" path="res://scenes/sword_animation.tscn" id="2_wul0i"]
+[ext_resource type="FontFile" uid="uid://c3og53i86ju3c" path="res://assets/VT323-Regular.ttf" id="4_e2yjt"]
 
 [sub_resource type="Animation" id="Animation_saxjg"]
 resource_name = "head_bob"
@@ -148,24 +149,28 @@ offset_left = -612.0
 offset_top = 300.0
 offset_right = -547.0
 offset_bottom = 334.0
+theme_override_fonts/normal_font = ExtResource("4_e2yjt")
+theme_override_font_sizes/normal_font_size = 23
 text = "HP: 10"
 
-[node name="leftButtonTextLabel" type="RichTextLabel" parent="head/camera/Control"]
+[node name="rightButtonTextLabel" type="RichTextLabel" parent="head/camera/Control"]
 visible = false
 layout_mode = 0
 offset_left = 61.0
 offset_top = -57.0
 offset_right = 254.0
 offset_bottom = -8.0
-text = "Change dream with the right mouse button"
+theme_override_fonts/normal_font = ExtResource("4_e2yjt")
+text = "Lucid change dream with the right mouse button"
 
-[node name="rightButtonTextLabel" type="RichTextLabel" parent="head/camera/Control"]
+[node name="leftButtonTextLabel" type="RichTextLabel" parent="head/camera/Control"]
 visible = false
 layout_mode = 0
 offset_left = -202.0
 offset_top = -53.0
 offset_right = -36.0
 offset_bottom = -4.0
+theme_override_fonts/normal_font = ExtResource("4_e2yjt")
 text = "Shoot with the Left mouse button"
 
 [node name="collision" type="CollisionShape3D" parent="."]
