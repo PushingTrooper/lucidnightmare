@@ -1,17 +1,27 @@
 extends RigidBody3D
-const SPEED = 3
+var SPEED = 3
+var shouldMove = true
+var hp = 2
 
 @onready var player = get_node("../player")
 
 func _ready():
-	print(player)
 	pass
 
 func _process(delta):
 	look_at(player.global_position)
-	position += transform.basis * Vector3(player.position.x, player.position.y, -SPEED) * delta
+	if shouldMove:
+		position += transform.basis * Vector3(player.position.x, player.position.y, -SPEED) * delta
 	pass
 
 func _on_body_entered(body):
 	print(body.get_name())
-	pass # Replace with function body.
+	var name = body.get_name()
+	if(name == "player"):
+		shouldMove = false
+		await wait(1)
+		shouldMove = true
+	pass
+
+func wait(s):
+	await get_tree().create_timer(s, false, false, true).timeout

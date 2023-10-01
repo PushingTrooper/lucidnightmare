@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfnjerugvsegq"]
+
+[ext_resource type="Script" path="res://data/enemy/enemy.gd" id="1_cfhox"]
+[ext_resource type="PackedScene" uid="uid://b0ro0aew53hh0" path="res://models/floating_enemy.glb" id="2_ah6nf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_03yys"]
+size = Vector3(1, 2, 1)
+
+[node name="enemy_fly" type="RigidBody3D"]
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_cfhox")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.225737, 0)
+shape = SubResource("BoxShape3D_03yys")
+
+[node name="floating_enemy" parent="." instance=ExtResource("2_ah6nf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
