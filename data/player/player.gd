@@ -20,6 +20,7 @@ var hp = 10
 @onready var leftButtonTextLabel = $head/camera/Control/leftButtonTextLabel
 @onready var rightButtonTextLabel = $head/camera/Control/rightButtonTextLabel
 @onready var hpTextLabel = $head/camera/Control/hpTextLabel
+@onready var gameOverScreen = $head/camera/gameOver
 
 @onready var parts = {
 	"head": $head,
@@ -88,6 +89,9 @@ func _input(event):
 		leftButtonTextLabel.visible = false
 		rightButtonTextLabel.visible = false
 	
+	if event.is_action_pressed("resetGame") and gameOverScreen.visible:
+		resetGame()
+	
 	if event.is_action_pressed("mouse_left_click") and Orchestrator.haveGun and cooldownTimer.is_stopped():
 		var initProjectile = projectile.instantiate()
 		var characterPosition = self.position
@@ -121,7 +125,8 @@ func hit():
 	hp-=1
 	hpTextLabel.text = "HP "+ str(hp)
 	if(hp < 1):
-		resetGame()
+		gameOverScreen.visible = true
+#		resetGame()
 
 func resetGame():
 	Orchestrator.haveGun = false

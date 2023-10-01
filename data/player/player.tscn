@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cve3fu224uibk"]
+[gd_scene load_steps=17 format=3 uid="uid://cve3fu224uibk"]
 
 [ext_resource type="Script" path="res://data/player/player.gd" id="1_u1w3t"]
 [ext_resource type="PackedScene" uid="uid://cgupsmo68e4mk" path="res://scenes/arms_animation.tscn" id="2_3kahs"]
 [ext_resource type="Texture2D" uid="uid://bubwl36108v2r" path="res://data/cursors/crosshair001.png" id="2_nq3sk"]
 [ext_resource type="PackedScene" uid="uid://drscp48mqs1sj" path="res://scenes/sword_animation.tscn" id="2_wul0i"]
 [ext_resource type="FontFile" uid="uid://c3og53i86ju3c" path="res://assets/VT323-Regular.ttf" id="4_e2yjt"]
+[ext_resource type="Texture2D" uid="uid://1taeerfp130i" path="res://assets/skull-svgrepo-com.svg" id="5_w50sg"]
 
 [sub_resource type="Animation" id="Animation_saxjg"]
 resource_name = "head_bob"
@@ -106,7 +107,7 @@ _data = {
 "swing": SubResource("Animation_qjh2w")
 }
 
-[node name="player" type="CharacterBody3D" groups=["player"]]
+[node name="dw" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_u1w3t")
 
 [node name="head" type="Node3D" parent="."]
@@ -172,6 +173,46 @@ offset_right = -36.0
 offset_bottom = -4.0
 theme_override_fonts/normal_font = ExtResource("4_e2yjt")
 text = "Shoot with the Left mouse button"
+
+[node name="gameOver" type="Node2D" parent="head/camera"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="head/camera/gameOver"]
+offset_left = -657.0
+offset_top = -380.0
+offset_right = 652.0
+offset_bottom = 373.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="head/camera/gameOver"]
+position = Vector2(1, 1)
+scale = Vector2(0.52987, 0.504386)
+texture = ExtResource("5_w50sg")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="head/camera/gameOver"]
+offset_left = -393.0
+offset_top = 218.0
+offset_right = 414.0
+offset_bottom = 304.0
+theme_override_font_sizes/normal_font_size = 60
+text = "Press R to restart the game
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="head/camera/gameOver"]
+offset_left = 246.0
+offset_top = -82.0
+offset_right = 555.0
+offset_bottom = 53.0
+theme_override_font_sizes/normal_font_size = 95
+text = "OVER"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="head/camera/gameOver"]
+offset_left = -557.0
+offset_top = -83.0
+offset_right = -248.0
+offset_bottom = 52.0
+theme_override_font_sizes/normal_font_size = 95
+text = "GAME"
 
 [node name="collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_phygr")
