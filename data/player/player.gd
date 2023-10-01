@@ -123,7 +123,7 @@ func hit():
 	emit_signal("enemy_hit", damageTaken)
 	print("got hit")
 	hp-=1
-	hpTextLabel.text = "HP "+ str(hp)
+	hpTextLabel.text = "Stress level: "+ str(10-hp)
 	if(hp < 1):
 		gameOverScreen.visible = true
 #		resetGame()

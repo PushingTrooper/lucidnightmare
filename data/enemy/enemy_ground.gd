@@ -1,10 +1,10 @@
 extends CharacterBody3D
-
-@onready var player = get_node("../player")
-@export var accel = 5
-@export var speed = 3
+@onready var world = get_parent()
+@onready var player = world.get_node("player")
+@export var accel = 2
+@export var speed = 1
 @export var damageTaken := 1
-var shouldMove = false
+var shouldMove = true
 var can_attack = true
 var hp = 2
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -24,12 +24,11 @@ func _process(delta):
 	look_at(player.global_position)
 	velocity.x = lerp(velocity.x, dir_x * speed, accel * delta)
 	velocity.z = lerp(velocity.z, dir_z * speed, accel * delta)
-	if(distance_to_player() < 20):
-		shouldMove = true
-	else: shouldMove = false
+	#if(distance_to_player() < 20):
+	shouldMove = true
+	#else: shouldMove = false
 	if shouldMove:
 		move_and_slide()
-	print(speed)
 	pass
 
 func distance_to_player():

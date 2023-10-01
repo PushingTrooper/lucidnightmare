@@ -14,6 +14,8 @@ func _process(delta):
 
 
 func _on_area_3d_body_entered(body):
-	Orchestrator.haveGun = true
+	if body.is_in_group("player"):
+		Orchestrator.haveGun = true
+		self.queue_free()
 	#self.process_mode = 4 # = Mode: Disabled
-	self.queue_free()
+	
