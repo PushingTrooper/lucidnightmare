@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-var projectile = preload("res://data/projectile/projectile.tscn")
+var projectile = preload("res://data/enemy_projectile/enemy_projectile.tscn")
 @onready var world = get_parent()
 @onready var player = get_node("../player")
 @export var damageTaken := 1
