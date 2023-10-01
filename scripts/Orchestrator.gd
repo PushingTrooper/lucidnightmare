@@ -3,7 +3,7 @@ extends Node3D
 enum States{STATE_RED, STATE_BLUE}
 
 var _state : int = States.STATE_BLUE
-var haveGun = true
+var haveGun = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

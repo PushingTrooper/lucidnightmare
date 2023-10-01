@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cve3fu224uibk"]
+[gd_scene load_steps=15 format=3 uid="uid://cve3fu224uibk"]
 
 [ext_resource type="Script" path="res://data/player/player.gd" id="1_u1w3t"]
+[ext_resource type="PackedScene" uid="uid://cgupsmo68e4mk" path="res://scenes/arms_animation.tscn" id="2_3kahs"]
 [ext_resource type="Texture2D" uid="uid://bubwl36108v2r" path="res://data/cursors/crosshair001.png" id="2_nq3sk"]
+[ext_resource type="PackedScene" uid="uid://drscp48mqs1sj" path="res://scenes/sword_animation.tscn" id="2_wul0i"]
 
 [sub_resource type="Animation" id="Animation_saxjg"]
 resource_name = "head_bob"
@@ -120,9 +122,17 @@ libraries = {
 }
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="head/camera"]
-transform = Transform3D(0.20298, 0, 0, 0, 0.169256, -0.43975, 0, 0.0841999, 0.883973, 0.256186, -0.309559, -0.227303)
+transform = Transform3D(0.20298, 0, 0, 0, 0.169256, -0.439751, 0, 0.0841999, 0.883973, 0.256186, -0.309559, -0.227303)
+visible = false
 mesh = SubResource("BoxMesh_6ddlv")
 skeleton = NodePath("../../..")
+
+[node name="sword_animation" parent="head/camera" instance=ExtResource("2_wul0i")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.294, -0.426)
+visible = false
+
+[node name="arms_animation" parent="head/camera" instance=ExtResource("2_3kahs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.294, -0.426)
 
 [node name="collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_phygr")
@@ -144,3 +154,5 @@ root_node = NodePath("../head/camera/MeshInstance3D2")
 libraries = {
 "": SubResource("AnimationLibrary_6ss64")
 }
+
+[editable path="head/camera/arms_animation"]

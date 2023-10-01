@@ -10,9 +10,12 @@ var speed = base_speed
 var sprinting = false
 var camera_fov_extents = [75.0, 85.0] #index 0 is normal, index 1 is sprinting
 var projectile = preload("res://data/projectile/projectile.tscn")
+var hp = 10
 
 @onready var cooldownTimer = $CooldownTimer
-@onready var swordAnimation = $AnimationPlayer
+@onready var swordAnimation = $head/camera/sword_animation/AnimationPlayer
+@onready var sword = $head/camera/sword_animation
+@onready var armsAnimation = $head/camera/arms_animation/AnimationPlayer
 
 @onready var parts = {
 	"head": $head,
@@ -72,6 +75,9 @@ func _input(event):
 			parts.head.rotation_degrees.x -= event.relative.y * sensitivity
 			parts.head.rotation.x = clamp(parts.head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 			
+	if Orchestrator.haveGun and !sword.is_visible_in_tree():
+		sword.visible = true
+			
 	if event.is_action_pressed("mouse_left_click") and Orchestrator.haveGun and cooldownTimer.is_stopped():
 		var initProjectile = projectile.instantiate()
 		var characterPosition = self.position
@@ -83,10 +89,12 @@ func _input(event):
 		world.add_child(initProjectile)
 		move_and_slide()
 		cooldownTimer.start()
-		if isEvenBullet:
-			swordAnimation.play("swing")
-		else:
-			swordAnimation.play_backwards("swing")
+#		if isEvenBullet:
+		swordAnimation.play("Cylinder_001Action")
+		armsAnimation.play("ArmatureAction_001")
+#		else:
+#			swordAnimation.play_backwards("Cylinder_001Action")
+#			armsAnimation.play_backwards("ArmatureAction_001")
 		
 		isEvenBullet = !isEvenBullet
 #		swordAnimation.
