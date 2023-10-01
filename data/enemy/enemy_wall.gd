@@ -3,6 +3,8 @@ extends RigidBody3D
 var projectile = preload("res://data/projectile/projectile.tscn")
 @onready var world = get_parent()
 @onready var player = get_node("../player")
+@export var damageTaken := 1
+var hp = 1
 var hasShot = false
 var canShoot = false
 # Called when the node enters the scene tree for the first time.
@@ -35,3 +37,10 @@ func shoot_projectile():
 
 func distance_to_player():
 	return int(self.transform.origin.distance_to(player.transform.origin))
+
+func hit():
+	emit_signal("enemy_hit", damageTaken)
+	print("got hit")
+	hp-=1
+	if(hp < 1):
+		self.queue_free()

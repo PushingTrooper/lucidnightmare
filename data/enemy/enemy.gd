@@ -1,17 +1,17 @@
 extends RigidBody3D
 var SPEED = 3
 var shouldMove = true
-var hp = 2
-
+var hp = 1
+@export var damageTaken := 1
 @onready var player = get_node("../player")
-
+signal enemy_hit(dmg)
 func _ready():
 	pass
 
 func _process(delta):
 	look_at(player.global_position)
 	if shouldMove:
-		position += transform.basis * Vector3(player.position.x, player.position.y, -SPEED) * delta
+		position += transform.basis * Vector3(player.global_position.x, player.global_position.y, -SPEED) * delta
 	pass
 
 func _on_body_entered(body):
@@ -25,3 +25,10 @@ func _on_body_entered(body):
 
 func wait(s):
 	await get_tree().create_timer(s, false, false, true).timeout
+
+func hit():
+	emit_signal("enemy_hit", damageTaken)
+	print("got hit")
+	hp-=1
+	if(hp < 1):
+		self.queue_free()

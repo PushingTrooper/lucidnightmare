@@ -4,8 +4,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1w61d"]
 
-[node name="enemy_wall" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.70719, -12.3938)
+[node name="enemy_wall" type="RigidBody3D" groups=["enemy"]]
 freeze = true
 script = ExtResource("1_hf7df")
 

@@ -18,6 +18,14 @@ func _process(delta):
 	#if freeQueueTimer.is_stopped():
 	#	self.queue_free()
 	if rayCast.is_colliding():
+		mesh1.visible = false
+		mesh2.visible = false
+		rayCast.enabled = false
+		if rayCast.get_collider().is_in_group("enemy"):
+			rayCast.get_collider().hit()
+		
+	if freeQueueTimer.is_stopped():
 		self.queue_free()
 #	var rayCastVector = Vector3(rayCast.get_position().x, rayCast.get_position().y, rayCast.get_position().z)
 #	move_and_collide(rayCast.position)
+

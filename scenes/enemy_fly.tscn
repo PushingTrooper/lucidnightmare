@@ -6,13 +6,14 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_03yys"]
 size = Vector3(1, 2, 1)
 
-[node name="enemy_fly" type="RigidBody3D"]
-max_contacts_reported = 5
+[node name="enemy_fly" type="RigidBody3D" groups=["enemy"]]
+axis_lock_angular_y = true
+max_contacts_reported = 100
 contact_monitor = true
 script = ExtResource("1_cfhox")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.225737, 0)
+transform = Transform3D(-4.80825e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.80825e-08, 0, 0.225737, 0)
 shape = SubResource("BoxShape3D_03yys")
 
 [node name="floating_enemy" parent="." instance=ExtResource("2_ah6nf")]
