@@ -25,7 +25,7 @@ func _on_body_entered(body):
 
 func wait(s):
 	await get_tree().create_timer(s, false, false, true).timeout
-
+	
 func hit():
 	emit_signal("enemy_hit", damageTaken)
 	print("got hit")
