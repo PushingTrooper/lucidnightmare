@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cve3fu224uibk"]
+[gd_scene load_steps=16 format=3 uid="uid://cve3fu224uibk"]
 
 [ext_resource type="Script" path="res://data/player/player.gd" id="1_u1w3t"]
 [ext_resource type="PackedScene" uid="uid://cgupsmo68e4mk" path="res://scenes/arms_animation.tscn" id="2_3kahs"]
 [ext_resource type="Texture2D" uid="uid://bubwl36108v2r" path="res://data/cursors/crosshair001.png" id="2_nq3sk"]
 [ext_resource type="PackedScene" uid="uid://drscp48mqs1sj" path="res://scenes/sword_animation.tscn" id="2_wul0i"]
+[ext_resource type="FontFile" uid="uid://c3og53i86ju3c" path="res://assets/VT323-Regular.ttf" id="4_e2yjt"]
 
 [sub_resource type="Animation" id="Animation_saxjg"]
 resource_name = "head_bob"
@@ -168,6 +169,51 @@ offset_top = -53.0
 offset_right = -36.0
 offset_bottom = -4.0
 text = "Shoot with the Left mouse button"
+
+[node name="sprintTextLabel" type="RichTextLabel" parent="head/camera/Control"]
+visible = false
+layout_mode = 0
+offset_left = -252.0
+offset_top = -143.0
+offset_right = 275.0
+offset_bottom = 96.0
+theme_override_font_sizes/normal_font_size = 44
+text = "Press Shift to Sprint and Shift+Space to Jump"
+
+[node name="gameOver" type="Node2D" parent="head/camera"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="head/camera/gameOver"]
+offset_left = -662.0
+offset_top = -369.0
+offset_right = 662.0
+offset_bottom = 376.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="head/camera/gameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -161.0
+offset_right = 432.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_e2yjt")
+theme_override_font_sizes/normal_font_size = 73
+text = "You wake up from your nightmare but it still won't stop"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="head/camera/gameOver"]
+offset_left = -368.0
+offset_top = 206.0
+offset_right = 400.0
+offset_bottom = 301.0
+theme_override_fonts/normal_font = ExtResource("4_e2yjt")
+theme_override_font_sizes/normal_font_size = 55
+text = "Press R to restart the Game"
 
 [node name="collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_phygr")

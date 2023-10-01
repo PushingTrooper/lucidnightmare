@@ -21,6 +21,7 @@ var hp = 10
 @onready var rightButtonTextLabel = $head/camera/Control/rightButtonTextLabel
 @onready var hpTextLabel = $head/camera/Control/hpTextLabel
 @onready var gameOverScreen = $head/camera/gameOver
+@onready var shiftTutorial = $head/camera/Control/sprintTextLabel
 
 @onready var parts = {
 	"head": $head,
@@ -91,6 +92,9 @@ func _input(event):
 	
 	if event.is_action_pressed("resetGame") and gameOverScreen.visible:
 		resetGame()
+		
+	if event.is_action_pressed("move_jump"):
+		shiftTutorial.visible = false
 	
 	if event.is_action_pressed("mouse_left_click") and Orchestrator.haveGun and cooldownTimer.is_stopped():
 		var initProjectile = projectile.instantiate()

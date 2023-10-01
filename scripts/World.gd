@@ -6,7 +6,6 @@ var paused = false
 signal pause
 signal unpause
 
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -27,3 +26,6 @@ func _process(_delta):
 			pause_game()
 		else:
 			unpause_game()
+
+func _on_area_3d_body_entered(body):
+	get_node("player/head/camera/Control/sprintTextLabel").visible = true
