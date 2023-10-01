@@ -1,7 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://37min1kbfjfs"]
 
 [ext_resource type="Script" path="res://scripts/weapon_pick_up.gd" id="1_7wda6"]
-[ext_resource type="PackedScene" uid="uid://ciwqkqowcbdy2" path="res://models/sword.glb" id="2_brwpp"]
+[ext_resource type="PackedScene" uid="uid://ciwqkqowcbdy2" path="res://models/sword.glb" id="2_bumva"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_haecp"]
+size = Vector3(0.883178, 5.34818, 0.813028)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmyri"]
 albedo_color = Color(0, 1, 1, 1)
@@ -18,16 +21,13 @@ turbulence_noise_scale = 2.6
 [sub_resource type="BoxMesh" id="BoxMesh_xehts"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_haecp"]
-size = Vector3(0.883178, 5.34818, 0.813028)
-
 [sub_resource type="Animation" id="Animation_xcj22"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("sword:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
@@ -43,13 +43,13 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("sword:position")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.49, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0.465904, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c1d7k"]
@@ -61,9 +61,15 @@ _data = {
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_7wda6")
 
-[node name="sword" parent="." instance=ExtResource("2_brwpp")]
+[node name="sword" parent="." instance=ExtResource("2_bumva")]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="sword"]
+[node name="Area3D" type="Area3D" parent="sword"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sword/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61728, 0)
+shape = SubResource("BoxShape3D_haecp")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="sword/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00350761, 4.0311, 0.000158787)
 material_override = SubResource("StandardMaterial3D_nmyri")
 amount = 30
@@ -71,12 +77,6 @@ lifetime = 1.74
 visibility_aabb = AABB(-0.246538, -5.11687, -0.286132, 0.493076, 5.52743, 0.572261)
 process_material = SubResource("ParticleProcessMaterial_6rtg5")
 draw_pass_1 = SubResource("BoxMesh_xehts")
-
-[node name="Area3D" type="Area3D" parent="sword"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sword/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61728, 0)
-shape = SubResource("BoxShape3D_haecp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
