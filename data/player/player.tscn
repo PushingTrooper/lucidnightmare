@@ -120,7 +120,7 @@ libraries = {
 }
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="head/camera"]
-transform = Transform3D(0.20298, 0, 0, 0, 0.169256, -0.43975, 0, 0.0841998, 0.883973, 0.256186, -0.309559, -0.227303)
+transform = Transform3D(0.20298, 0, 0, 0, 0.169256, -0.43975, 0, 0.0841999, 0.883973, 0.256186, -0.309559, -0.227303)
 mesh = SubResource("BoxMesh_6ddlv")
 skeleton = NodePath("../../..")
 

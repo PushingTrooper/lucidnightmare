@@ -3,7 +3,7 @@ extends Node3D
 enum States{STATE_RED, STATE_BLUE}
 
 var _state : int = States.STATE_BLUE
-var haveGun = false
+var haveGun = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +16,7 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print("State is " + str(_state))
+	#print("State is " + str(_state))
 	if Input.is_action_just_pressed("state_change") and _state == States.STATE_BLUE:
 		_state = States.STATE_RED
 	elif Input.is_action_just_pressed("state_change") and _state == States.STATE_RED:
