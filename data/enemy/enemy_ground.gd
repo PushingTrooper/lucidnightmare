@@ -35,7 +35,6 @@ func distance_to_player():
 	return int(self.transform.origin.distance_to(player.transform.origin))
 
 func _on_area_3d_body_entered(body):
-	#print(body.get_name())
 	if(name == "player"):
 		speed = 0
 		await wait(5)

@@ -47,8 +47,8 @@ emission_energy_multiplier = 11.22
 material = SubResource("StandardMaterial3D_3ey1o")
 size = Vector3(0.5, 0.5, 0.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_d6n7a"]
-size = Vector3(500, 1, 500)
+[sub_resource type="BoxShape3D" id="BoxShape3D_y06xg"]
+size = Vector3(395.593, 16.8888, 533.611)
 
 [node name="Floor" type="Node3D"]
 script = ExtResource("1_4lbbn")
@@ -207,13 +207,11 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 22.735
 [node name="enemy_ground2" parent="." instance=ExtResource("8_ju2w8")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.924436, 2.16392, -165.145)
 
-[node name="killbox2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.7724, -77.7441)
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -27.8619, 0)
 
-[node name="killboxarea" type="Area3D" parent="killbox2"]
-transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.8753, 0)
+shape = SubResource("BoxShape3D_y06xg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="killbox2/killboxarea"]
-shape = SubResource("BoxShape3D_d6n7a")
-
-[connection signal="body_entered" from="killbox2/killboxarea" to="player" method="_on_killboxarea_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

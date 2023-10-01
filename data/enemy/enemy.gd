@@ -15,7 +15,6 @@ func _process(delta):
 	pass
 
 func _on_body_entered(body):
-	print(body.get_name())
 	var name = body.get_name()
 	if(name == "player"):
 		shouldMove = false
@@ -27,8 +26,6 @@ func wait(s):
 	await get_tree().create_timer(s, false, false, true).timeout
 	
 func hit():
-	emit_signal("enemy_hit", damageTaken)
-	print("got hit")
 	hp-=1
 	if(hp < 1):
 		self.queue_free()

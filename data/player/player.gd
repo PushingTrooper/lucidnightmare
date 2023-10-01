@@ -125,7 +125,6 @@ func _input(event):
 
 func hit():
 	emit_signal("enemy_hit", damageTaken)
-	print("got hit")
 	hp-=1
 	hpTextLabel.text = "Stress level: "+ str(10-hp)
 	if(hp < 1):
@@ -151,7 +150,11 @@ func _on_enemy_fly_body_entered(body):
 	hit()
 
 func _on_area_3d_body_entered(body):
-	print(body.get_name())
-	if("enemy_ground" in body.get_name()):
+	if("enemy_ground" in body.get_name() or "enemy_fly" in body.get_name()):
 		hit()
+	pass # Replace with function body.
+
+func _on_killboxarea_body_entered(body):
+	hp = 1
+	hit()
 	pass # Replace with function body.

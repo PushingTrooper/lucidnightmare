@@ -16,7 +16,6 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#print("State is " + str(_state))
 	if Input.is_action_just_pressed("state_change") and _state == States.STATE_BLUE:
 		_state = States.STATE_RED
 	elif Input.is_action_just_pressed("state_change") and _state == States.STATE_RED:
