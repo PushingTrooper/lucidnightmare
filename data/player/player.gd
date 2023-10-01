@@ -11,11 +11,14 @@ var sprinting = false
 var camera_fov_extents = [75.0, 85.0] #index 0 is normal, index 1 is sprinting
 var projectile = preload("res://data/projectile/projectile.tscn")
 var hp = 10
+@export var damageTaken := 1
 
 @onready var cooldownTimer = $CooldownTimer
 @onready var swordAnimation = $head/camera/sword_animation/AnimationPlayer
 @onready var sword = $head/camera/sword_animation
 @onready var armsAnimation = $head/camera/arms_animation/AnimationPlayer
+@onready var leftButtonTextLabel = $head/camera/Control/leftButtonTextLabel
+@onready var rightButtonTextLabel = $head/camera/Control/rightButtonTextLabel
 
 @onready var parts = {
 	"head": $head,
@@ -77,7 +80,13 @@ func _input(event):
 			
 	if Orchestrator.haveGun and !sword.is_visible_in_tree():
 		sword.visible = true
-			
+		leftButtonTextLabel.visible = true
+		rightButtonTextLabel.visible = true
+		
+	if event.is_action_pressed("state_change") and Orchestrator.haveGun:
+		leftButtonTextLabel.visible = false
+		rightButtonTextLabel.visible = false
+	
 	if event.is_action_pressed("mouse_left_click") and Orchestrator.haveGun and cooldownTimer.is_stopped():
 		var initProjectile = projectile.instantiate()
 		var characterPosition = self.position
@@ -103,6 +112,13 @@ func _input(event):
 #			parts.weapon.rotation_degrees.y -= event.relative.x * sensitivity
 #			parts.weapon.rotation_degrees.x -= event.relative.y * sensitivity
 #			parts.weapon.rotation.x = clamp(parts.head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
+func hit():
+	emit_signal("enemy_hit", damageTaken)
+	print("got hit")
+	hp-=1
+#	if(hp < 1):
+#		self.queue_free()
 
 func _on_pause():
 	pass

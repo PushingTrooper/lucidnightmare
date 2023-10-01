@@ -134,6 +134,40 @@ visible = false
 [node name="arms_animation" parent="head/camera" instance=ExtResource("2_3kahs")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.294, -0.426)
 
+[node name="Control" type="Control" parent="head/camera"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hpTextLabel" type="RichTextLabel" parent="head/camera/Control"]
+layout_mode = 0
+offset_left = -612.0
+offset_top = 300.0
+offset_right = -547.0
+offset_bottom = 334.0
+text = "HP: 10"
+
+[node name="leftButtonTextLabel" type="RichTextLabel" parent="head/camera/Control"]
+visible = false
+layout_mode = 0
+offset_left = 61.0
+offset_top = -57.0
+offset_right = 254.0
+offset_bottom = -8.0
+text = "Change dream with the right mouse button"
+
+[node name="rightButtonTextLabel" type="RichTextLabel" parent="head/camera/Control"]
+visible = false
+layout_mode = 0
+offset_left = -202.0
+offset_top = -53.0
+offset_right = -36.0
+offset_bottom = -4.0
+text = "Shoot with the Left mouse button"
+
 [node name="collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_phygr")
 
