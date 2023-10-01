@@ -37,7 +37,7 @@ collision_layer = 9
 size = Vector3(10, 1, 10)
 material = ExtResource("3_vmra8")
 
-[node name="Platform Tutorial 1" type="CSGBox3D" parent="."]
+[node name="platform_blue1" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27292, -0.699166, -15.8887)
 use_collision = true
 collision_layer = 3
@@ -46,41 +46,41 @@ size = Vector3(8, 2, 8)
 material = ExtResource("3_vmra8")
 script = ExtResource("2_eekg2")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+[node name="platform_blue2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0227, 0, -30.754)
 use_collision = true
 size = Vector3(10, 2, 10)
 material = ExtResource("3_vmra8")
 script = ExtResource("2_eekg2")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+[node name="platform_blue3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.55031, 0, -46.3382)
 use_collision = true
 size = Vector3(8, 2.48789, 8)
 material = ExtResource("3_vmra8")
 script = ExtResource("2_eekg2")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+[node name="platform_sword_pickup" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7068, 0, -66.8832)
 use_collision = true
 size = Vector3(36, 2.5, 14)
 material = ExtResource("3_vmra8")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+[node name="platform_red1" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -90.0639)
 use_collision = true
 size = Vector3(8.68678, 2.48789, 8.83228)
 material = ExtResource("3_vmra8")
 script = ExtResource("3_fjyt5")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+[node name="platform_blue4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9892, 0, -104.039)
 use_collision = true
 size = Vector3(8, 3.21585, 8)
 material = ExtResource("3_vmra8")
 script = ExtResource("2_eekg2")
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+[node name="platform_red2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4497, 0, -120.105)
 use_collision = true
 size = Vector3(10, 2.48789, 10)

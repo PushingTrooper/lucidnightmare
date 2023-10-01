@@ -68,7 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00350761, 4.0311, 0.0001587
 material_override = SubResource("StandardMaterial3D_nmyri")
 amount = 30
 lifetime = 1.74
-visibility_aabb = AABB(-0.48459, -0.649969, -0.558241, 0.969181, 1.29994, 1.11648)
+visibility_aabb = AABB(-0.246538, -5.11687, -0.286132, 0.493076, 5.52743, 0.572261)
 process_material = SubResource("ParticleProcessMaterial_6rtg5")
 draw_pass_1 = SubResource("BoxMesh_xehts")
 
