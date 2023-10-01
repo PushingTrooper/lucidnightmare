@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://661fnqnm72ge"]
+[gd_scene load_steps=5 format=3 uid="uid://661fnqnm72ge"]
 
 [ext_resource type="Script" path="res://data/projectile/projectile.gd" id="1_fema8"]
+[ext_resource type="Material" uid="uid://cwbbqmxylbd6l" path="res://materials/projectile.tres" id="2_786da"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gadh6"]
 
@@ -12,12 +13,14 @@ collision_mask = 2
 script = ExtResource("1_fema8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0567598, 0, 0.638092, 0, 0.156684, 0, -0.201188, 0, -0.180021, -0.276608, 0, -0.0317072)
+transform = Transform3D(-0.0567598, 0, 0.638092, 0, 0.0533659, 0, -0.201188, 0, -0.180021, -0.276608, 0, -0.0317072)
 mesh = SubResource("BoxMesh_gadh6")
+surface_material_override/0 = ExtResource("2_786da")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0795905, 0, 0.593911, 0, 0.156684, 0, -0.154747, 0, 0.305464, 0.2704, 0, 0.0123632)
+transform = Transform3D(0.0795905, 0, 0.593911, 0, 0.0533659, 0, -0.154747, 0, 0.305464, 0.2704, 0, 0.0123632)
 mesh = SubResource("BoxMesh_gadh6")
+surface_material_override/0 = ExtResource("2_786da")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -1)
