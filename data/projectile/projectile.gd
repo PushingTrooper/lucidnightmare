@@ -15,7 +15,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += transform.basis * Vector3(0, 0, -SPEED) * delta
-	if freeQueueTimer.is_stopped():
+	#if freeQueueTimer.is_stopped():
+	#	self.queue_free()
+	if rayCast.is_colliding():
 		self.queue_free()
 #	var rayCastVector = Vector3(rayCast.get_position().x, rayCast.get_position().y, rayCast.get_position().z)
 #	move_and_collide(rayCast.position)
