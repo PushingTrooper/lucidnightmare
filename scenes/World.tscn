@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6acqm3u7u1e8"]
+[gd_scene load_steps=18 format=3 uid="uid://b6acqm3u7u1e8"]
 
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_4lbbn"]
 [ext_resource type="PackedScene" uid="uid://cve3fu224uibk" path="res://data/player/player.tscn" id="1_dc6xj"]
 [ext_resource type="Script" path="res://scripts/blue_platform.gd" id="2_eekg2"]
 [ext_resource type="Texture2D" uid="uid://bvplxyonl13wu" path="res://textures/skytextures/skybox.png" id="2_yhgwl"]
 [ext_resource type="Script" path="res://scripts/red_platform.gd" id="3_fjyt5"]
-[ext_resource type="Material" path="res://materials/flesh_material.tres" id="3_vmra8"]
+[ext_resource type="Material" uid="uid://cobea0lginwat" path="res://materials/flesh_material.tres" id="3_vmra8"]
 [ext_resource type="PackedScene" uid="uid://uuscghn28xmu" path="res://scenes/enemy_ground.tscn" id="8_ju2w8"]
 [ext_resource type="PackedScene" uid="uid://dh5ocxx7e48wt" path="res://scenes/enemy_wall.tscn" id="8_p3umd"]
 [ext_resource type="PackedScene" uid="uid://37min1kbfjfs" path="res://scenes/weapon_pick_up.tscn" id="9_4sdkt"]
@@ -22,6 +22,29 @@ sky = SubResource("Sky_ua2i1")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="Curve" id="Curve_1w5vb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nkb80"]
+curve = SubResource("Curve_1w5vb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_76py1"]
+emission_shape = 3
+emission_box_extents = Vector3(4, 1, 4)
+scale_min = 0.1
+scale_curve = SubResource("CurveTexture_nkb80")
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ey1o"]
+emission_enabled = true
+emission = Color(0.6, 0.235294, 0.176471, 1)
+emission_energy_multiplier = 11.22
+
+[sub_resource type="BoxMesh" id="BoxMesh_ny062"]
+material = SubResource("StandardMaterial3D_3ey1o")
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="Floor" type="Node3D"]
 script = ExtResource("1_4lbbn")
 
@@ -32,7 +55,7 @@ environment = SubResource("Environment_2jpkb")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="Start" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 collision_layer = 9
@@ -48,6 +71,11 @@ size = Vector3(8, 2, 8)
 material = ExtResource("3_vmra8")
 script = ExtResource("2_eekg2")
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="platform_blue1"]
+amount = 98
+process_material = SubResource("ParticleProcessMaterial_76py1")
+draw_pass_1 = SubResource("BoxMesh_ny062")
+
 [node name="platform_blue2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0227, 0, -30.754)
 use_collision = true
@@ -55,12 +83,24 @@ size = Vector3(10, 2, 10)
 material = ExtResource("3_vmra8")
 script = ExtResource("2_eekg2")
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="platform_blue2"]
+amount = 98
+visibility_aabb = AABB(-4.84805, -4, -5.1931, 9.6961, 8, 10.3862)
+process_material = SubResource("ParticleProcessMaterial_76py1")
+draw_pass_1 = SubResource("BoxMesh_ny062")
+
 [node name="platform_blue3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.55031, 0, -46.3382)
 use_collision = true
 size = Vector3(8, 2.48789, 8)
 material = ExtResource("3_vmra8")
 script = ExtResource("2_eekg2")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="platform_blue3"]
+amount = 98
+visibility_aabb = AABB(-4.84805, -4, -5.1931, 9.6961, 8, 10.3862)
+process_material = SubResource("ParticleProcessMaterial_76py1")
+draw_pass_1 = SubResource("BoxMesh_ny062")
 
 [node name="platform_sword_pickup" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7068, 0, -66.8832)
@@ -75,6 +115,12 @@ size = Vector3(8.68678, 2.48789, 8.83228)
 material = ExtResource("3_vmra8")
 script = ExtResource("3_fjyt5")
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="platform_red1"]
+amount = 98
+visibility_aabb = AABB(-4.84805, -4, -5.1931, 9.6961, 8, 10.3862)
+process_material = SubResource("ParticleProcessMaterial_76py1")
+draw_pass_1 = SubResource("BoxMesh_ny062")
+
 [node name="platform_blue4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9892, 0, -104.039)
 use_collision = true
@@ -82,12 +128,24 @@ size = Vector3(8, 3.21585, 8)
 material = ExtResource("3_vmra8")
 script = ExtResource("2_eekg2")
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="platform_blue4"]
+amount = 98
+visibility_aabb = AABB(-4.84805, -4, -5.1931, 9.6961, 8, 10.3862)
+process_material = SubResource("ParticleProcessMaterial_76py1")
+draw_pass_1 = SubResource("BoxMesh_ny062")
+
 [node name="platform_red2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4497, 0, -120.105)
 use_collision = true
 size = Vector3(10, 2.48789, 10)
 material = ExtResource("3_vmra8")
 script = ExtResource("3_fjyt5")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="platform_red2"]
+amount = 98
+visibility_aabb = AABB(-4.84805, -4, -5.1931, 9.6961, 8, 10.3862)
+process_material = SubResource("ParticleProcessMaterial_76py1")
+draw_pass_1 = SubResource("BoxMesh_ny062")
 
 [node name="Node3D2" parent="." instance=ExtResource("9_4sdkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7724, 2.05259, -145.996)
