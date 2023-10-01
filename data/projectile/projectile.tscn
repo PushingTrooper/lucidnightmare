@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bxnki"]
 
-[node name="projectile" type="RigidBody3D" groups=["enemy"]]
+[node name="projectile" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_fema8")

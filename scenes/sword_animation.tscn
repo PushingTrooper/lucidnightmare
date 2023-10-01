@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://drscp48mqs1sj"]
+
+[ext_resource type="PackedScene" uid="uid://dd8tji07cn4w6" path="res://models/sword_animation.glb" id="1_uvin4"]
+
+[node name="sword_animation" instance=ExtResource("1_uvin4")]
+
+[node name="Cylinder_001" parent="." index="0"]
+transform = Transform3D(-0.00875711, 0.00919317, -0.00289054, -0.00023032, -0.00410425, -0.0123555, -0.00963413, -0.00825817, 0.00292279, 0.0696607, 0.101874, 0.175133)

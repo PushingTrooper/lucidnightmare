@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/blue_platform.gd" id="2_eekg2"]
 [ext_resource type="Texture2D" uid="uid://bvplxyonl13wu" path="res://textures/skytextures/skybox.png" id="2_yhgwl"]
 [ext_resource type="Script" path="res://scripts/red_platform.gd" id="3_fjyt5"]
-[ext_resource type="Material" uid="uid://cobea0lginwat" path="res://materials/flesh_material.tres" id="3_vmra8"]
+[ext_resource type="Material" path="res://materials/flesh_material.tres" id="3_vmra8"]
 [ext_resource type="PackedScene" uid="uid://37min1kbfjfs" path="res://scenes/weapon_pick_up.tscn" id="9_4sdkt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qct8x"]
