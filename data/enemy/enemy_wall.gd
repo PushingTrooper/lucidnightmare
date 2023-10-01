@@ -39,8 +39,6 @@ func distance_to_player():
 	return int(self.transform.origin.distance_to(player.transform.origin))
 
 func hit():
-	emit_signal("enemy_hit", damageTaken)
-	print("got hit")
 	hp-=1
 	if(hp < 1):
 		self.queue_free()

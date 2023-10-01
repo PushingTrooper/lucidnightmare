@@ -149,3 +149,9 @@ func _on_unpause():
 
 func _on_enemy_fly_body_entered(body):
 	hit()
+
+func _on_area_3d_body_entered(body):
+	print(body.get_name())
+	if("enemy_ground" in body.get_name()):
+		hit()
+	pass # Replace with function body.

@@ -35,7 +35,7 @@ func distance_to_player():
 	return int(self.transform.origin.distance_to(player.transform.origin))
 
 func _on_area_3d_body_entered(body):
-	print(body.get_name())
+	#print(body.get_name())
 	if(name == "player"):
 		speed = 0
 		await wait(5)
@@ -46,8 +46,6 @@ func wait(s):
 	await get_tree().create_timer(s, true, false, true).timeout
 	
 func hit():
-	emit_signal("enemy_hit", damageTaken)
-	print("got hit")
 	hp-=1
 	if(hp < 1):
 		self.queue_free()
